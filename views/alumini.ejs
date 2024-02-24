@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumini List</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Alumini List</h1>
+
+        <!-- Navigation Links -->
+        <div class="mb-4">
+            <a href="/add-alumini" class="btn btn-primary">Add Alumini</a>
+            <a href="/update-alumini" class="btn btn-warning">Update Alumini</a>
+            <a href="/delete-alumini" class="btn btn-danger">Delete Alumini</a>
+        </div>
+
+        <div class="row">
+            <% alumini.forEach(alumini=> { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= alumini.first_name %>
+                                    <%= alumini.last_name %>
+                            </h5>
+                            <p class="card-text">Job Title: <%= alumini.current_job_title %>
+                            </p>
+                            <!-- Add other details as needed -->
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-cN9kSARyQOp7ESVflJEn5eew/I9CUxQZGTtP4u5XZt8meAOeKCFzHpckH6PcAPJ9"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyYq4GhAeGfah5zg7x4UuuX5N4l5huC"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

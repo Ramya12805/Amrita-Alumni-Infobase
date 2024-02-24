@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education History</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Education History</h1>
+    <% if (educationHistory.length> 0) { %>
+        <table>
+            <tr>
+                <th>Alumini ID</th>
+                <th>Degree Earned</th>
+                <th>Honors/Awards</th>
+                <th>Institution Name</th>
+                <th>Major Field of Study</th>
+            </tr>
+            <% educationHistory.forEach(education=> { %>
+                <tr>
+                    <td>
+                        <%= education.alumini_id %>
+                    </td>
+                    <td>
+                        <%= education.degree_earned %>
+                    </td>
+                    <td>
+                        <%= education.honors_awards %>
+                    </td>
+                    <td>
+                        <%= education.institution_name %>
+                    </td>
+                    <td>
+                        <%= education.major_field_of_study %>
+                    </td>
+                </tr>
+                <% }); %>
+        </table>
+        <% } else { %>
+            <p>No education history available for this alumini.</p>
+            <% } %>
+</body>
+
+</html>

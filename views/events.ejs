@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 10px 20px;
+            width: calc(33.33% - 20px);
+            text-align: left;
+        }
+
+        strong {
+            color: #4caf50;
+        }
+
+        .add-delete-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .add-delete-buttons a {
+            text-decoration: none;
+        }
+
+        .add-delete-buttons button {
+            margin: 0 10px;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Events List</h1>
+    <div class="add-delete-buttons">
+        <a href="/add-event"><button>Add Event</button></a>
+        <a href="/delete-event"><button>Delete Event</button></a>
+    </div>
+
+    <div class="cards-container">
+        <% events.forEach(event=> { %>
+            <div class="card">
+                <strong>Event ID:</strong>
+                <%= event.event_id %><br>
+                    <strong>Alumni Attending:</strong>
+                    <%= event.alumini_attending %><br>
+                        <strong>Event Date:</strong>
+                        <%= event.event_date %><br>
+                            <strong>City:</strong>
+                            <%= event.city %><br>
+                                <strong>Pincode:</strong>
+                                <%= event.pincode %><br>
+                                    <strong>Event Description:</strong>
+                                    <%= event.event_desc %><br>
+                                        <strong>Street:</strong>
+                                        <%= event.street %>
+            </div>
+            <% }); %>
+    </div>
+</body>
+
+</html>

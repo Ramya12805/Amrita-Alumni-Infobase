@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrita Alumni</title>
+    <!-- <link rel="stylesheet" href="Clubs.css> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu-right-alt.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+.image-container{
+position: relative;
+display: inline-block;
+}
+.image-container img{
+    width: 1520px;
+    height: 1000px;
+}
+.overlay-text{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+background-color:transparent;
+color: #fff;
+padding: 10px 20px;
+text-align: center;
+}
+
+
+/* .section-home{
+   position:relative;
+   min-height: 100vh;
+   background: url(amritapuri-convocation-2022-images-7.png)no-repeat; 
+   background-size:cover ;
+   background-position:center ;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+} */
+
+/* .section-home h1{
+  color: #FFF8DE; 
+  font-size:10vw ;
+  font-weight: 800;
+  text-shadow: 0 5px 25px rgb(0 0 0 / 20%);
+  opacity: 0.8; 
+} */
+
+
+
+.header{
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(103, 18, 18, 0.953);
+    box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
+    padding: 0 100px;
+    transition: 0.6s;
+}
+ .logo {
+color: aliceblue;
+font-family: 'Raleway', sans-serif;
+font-size: 1.8em;
+font-weight: 400;
+text-transform: uppercase;
+text-decoration: none;
+letter-spacing: 2px;
+
+}
+ .navigation{
+  position: relative;
+  line-height: 75px; 
+  transition-property: line-height;
+}
+header.sticky .navigation{
+    line-height: 60px;
+}
+ .navigation .menu{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    user-select:none;
+}
+.menu_item > a{
+   color: aliceblue;
+   font-size: 1em;
+   text-decoration: none;
+   margin: 20px;
+   padding: 25px 0;
+}
+.menu_item>a:hover{
+  color: black;
+  transition: 0.3s;
+}
+.menu_item .sub-menu{
+    position: absolute;
+    background: rgb(100, 20, 20);
+    top:74px;
+   line-height: 40px;
+   list-style: none;
+   border-radius:  0 0 8px 8px;
+   box-shadow: 0 5px 25px rgba(192, 26, 26, 0.2);
+   pointer-events: none;
+   transform: translateY(20px);
+   opacity: 0;
+   transition: 0.3s;
+   transition-property: transform,opacity;
+}
+.header.sticky .menu_item .sub-menu{
+    top: 60px;
+}
+.menu_item:hover .sub-menu{
+    pointer-events: all;
+    transform: translateY(0);
+    opacity: 1; 
+    
+}
+
+.menu_item .sub-menu .sub-item{
+    position: relative;
+    padding: 7px 0;
+    cursor: pointer;
+    box-shadow: inset 0px -30px 5px -30px rgba(26, 12, 12, 0.251);
+
+}
+
+.menu_item .sub-menu .sub-item a{
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+    padding: 15px 30px;
+  
+}
+.menu_item .sub-menu .sub-item:hover{
+    background: black;
+    
+}
+.menu_item .sub-menu .sub-item:last-child:hover{
+    border-radius:0 0 8px 8px;
+}
+
+.menu-btn{
+    display: none;
+}
+@media (max-width:1060px) {
+    .header .navigation .menu{
+        position: fixed;
+        display: block;
+        background: rgb(114, 41, 41);
+        min-width: 350px;
+        height: 100vh;
+        top: 0;
+        right: -100%;
+        padding: 90px 50px;
+        overflow-y: auto;
+        transition: 0.5s;
+        transition-property: right,visiblilty;
+        
+    }
+    .header.sticky .navigation{
+        line-height: 75px;
+    }
+    .header .navigation .menu.active{
+        right: 0; 
+        visibility: visible;
+    }
+    .menu_item{
+        position: relative;
+    }
+    .menu_item .sub-menu{
+        opacity: 1;
+        position: relative;
+        top: 0;
+        transform: translateX(10px);
+        background: rgba(192, 26, 26, 0.2);
+        border-radius: 5px;
+        overflow: hidden;
+        display: none;
+    }
+    .header.sticky .menu_item .sub-menu{
+        top: 0;
+    }
+    .menu_item:hover .sub-menu{
+        transform: translateX(10px); 
+    } 
+    .menu_item .sub-menu .sub-item{
+        box-shadow: none;
+    }
+    .menu_item .sub-menu .sub-item:hover{
+background: none;
+    }
+    .menu_item .sub-menu .sub-item a:hover{
+        color: black;
+        transition: 0.3s;
+    }
+
+.close-btn{
+    position: absolute;
+ background:url(cross-button.png)no-repeat;
+width: 40px;
+height: 40px;
+background-size: 25px;
+background-position: center;
+   top: 0;
+   left: 0;
+   margin: 25px;
+   cursor: pointer;
+}
+.menu-btn{
+    background: url(menu_btn.png)no-repeat;
+    width: 40px;
+    height: 40px;
+    background-size: 70px;
+    background-position: center;
+    cursor: pointer;
+    display: block; 
+
+ }
+ .header{
+    padding: 15px 20px;
+ }
+ .header.sticky{
+    padding: 10px 20px;
+ }
+}
+.intro h3,p,h1{
+    font-family: "Raleway";
+    line-height: 25px;
+    justify-content: center;
+    align-items: center;
+    display: flex; 
+}
+
+/* until here header,media queries,community texts next is boxes */
+
+
+.cover{
+    width: 100%;
+    height: 450px;
+    margin-top: 40px;
+    display: flex;
+    padding-left: 90px;
+}
+.box{
+    width: 600px;
+    height: 450px;
+    margin: 25px;
+    background-color: rgb(251, 239, 239);
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.box img{
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 210px;
+    border: 5px solid #027547;
+}
+.box1{
+    width: 600px;
+    height: 450px;
+    margin: 25px;
+    background-color: rgb(251, 239, 239);
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.box1 img{
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 210px;
+    border: 5px solid rgb(235, 14, 44);
+}
+
+.cover1{
+    width: 100%;
+    height: 450px;
+    margin-top: 40px;
+    display: flex;
+    padding-left: 90px;
+}
+
+.box2{
+    width: 600px;
+    height: 450px;
+    margin: 25px;
+    background-color: rgb(251, 239, 239);
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.box2 img{
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 210px;
+    border: 5px solid #f79b08;
+}
+.box3{
+    width: 600px;
+    height: 450px;
+    margin: 25px;
+    background-color: rgb(251, 239, 239);
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.box3 img{
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 210px;
+    border: 5px solid #3498db;
+}
+/* link underline starts*/
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
+/* link underline ends*/
+
+/* arrow hovering starts */
+  .arrow-link {
+    display: inline-block;
+    position: relative;
+    padding-right: 20px; /* Adjust as needed */
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: padding-right 0.3s ease; /* Smooth transition for the padding */
+}
+
+.arrow-link:hover {
+    padding-right: 40px; /* Adjust as needed */
+}
+
+.arrow-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease; /* Smooth transition for the transform property */
+}
+
+.arrow-link:hover .arrow-icon {
+    transform: translate(30%, -50%);
+}
+
+/* arrow hover ends*/
+
+
+.cover2{
+    width: 1250px;
+    height: 350px;
+    margin-top: 40px;
+    display: flex;
+    margin-left: 180px;
+    margin-left: 150px;
+    font-size: 30px;
+}
+.box4{
+    width: 400px;
+    height: 315px;
+    font-size: 17px;
+    border: 1px solid lightgray;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin: 25px;
+}
+.box5{
+    width: 400px;
+    height: 315px;
+    font-size: 17px;
+    border: 1px solid lightgray;
+    padding: 25px;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+}
+.box6{
+    width: 400px;
+    height: 315px;
+    font-size: 17px;
+    border: 1px solid lightgray;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin: 25px;
+}
+
+
+footer *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    }
+    footer ul{
+        list-style: none;
+    }
+    footer{
+        color: white;
+        background: #121315;
+    
+    }
+    footer p{
+        color: #ccc;
+        max-width: 25em;
+        font-size: 0.9em;
+        line-height: 23px;
+    }
+    footer a{
+        color: #fff;
+        text-decoration: none;
+    }
+    footer h4{
+       margin-bottom: 1em;
+       text-transform: uppercase; 
+    }
+    footer .container1{
+     max-width: 1500px;
+     margin-top: 60px;
+     
+     padding: 2em;
+    }
+    .footer{
+        position: relative;
+        background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Amrita_School_of_Engineering%2C_Coimbatore.jpg/800px-Amrita_School_of_Engineering%2C_Coimbatore.jpg) no-repeat center;
+        background-size: cover;
+    }
+    .footer::before{
+       content: '';
+       background: rgba(0,0,0,0.6);
+       position:absolute;
+       top:0; 
+       left: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 0;
+    }
+    .footer .container1{
+        position: relative;
+    }
+    .footer .footer-top .container1,.footer .col2,.footer .footer-bottom .container1{
+       display: flex; 
+       justify-content: space-between;
+       gap: 2em;
+    }
+    .footer .footer-bottom .container1{
+        padding: 1em 2em;
+        align-items: center;
+    }
+    .footer menu li{
+        margin-bottom: 0.6em;
+       
+    }
+    .footer .menu a:hover{
+        text-decoration: underline;
+    }
+    .Brand{
+       display: block;
+       font-size: 1.8em; 
+       font-weight: 600;
+       margin-bottom: 1em;   
+    }
+    .media-icons li,.service-icons li{
+        display: inline-block;
+        margin: 0.5em 0.5em 0.5em 0;
+    }
+    .media-icons a{
+        font-size: 1.1em;
+        width: 2em;
+        height: 2em;
+        border: 1px white solid;
+        border-radius:50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+    }
+    .media-icons a:hover{
+        background: #fff;
+        color: #111;
+    }
+    .service-icons a{
+        font-size: 1.6em;   
+    }
+    .service-icons a:hover{
+        color: #dbdbdb;
+    
+    }
+    .footer-bottom{
+      border-top: 1px #bdbdbd solid;  
+    }
+    @media screen and (max-width:900px){
+      .footer .footer-top .container1  ,
+      .footer .footer-bottom .container1{
+        flex-direction: column;
+      } 
+      .footer .col2{
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
+    </style>
+</head>
+
+<body>
+   <div class="header">
+    <img src="logo.png" alt="AMRITA ALUMNI" height="100px" width="100px" style="position: relative;margin-left:20px;margin-right: 0px;">
+    <a href="home.html" class="logo">AMRITA ALUMNI</a>
+    <div class="navigation">
+        <ul class="menu">
+            <div class="close-btn"></div>
+            <li class="menu_item">
+                <a class="sub-btn">About <i class="fas fa-angle-down"></i></a>
+                <ul class="sub-menu">
+                <li class="sub-item"><a href="" >About AAA</a></li>
+                <li class="sub-item"><a href="" >Statistics</a></li>
+                </ul>
+            </li>
+            <li class="menu_item">
+                <a class="sub-btn">Events<i class="fas fa-angle-down"></i></a>
+                <ul class="sub-menu">
+                    <li class="sub-item"><a href="" >Featured Events</a></li>
+                    <!-- <li class="sub-item"><a  href="" >Reunions</a></li> -->
+                    <!-- <li class="sub-item"><a  href="" >Event Space</a></li> -->
+                </ul>
+            </li>
+            <!-- <li class="menu_item">
+                <a class="sub-btn">Programs & Perks <i class="fas fa-angle-down"></i></a>
+            <ul class="sub-menu">
+                <li class="sub-item"><a  href="" >Alumni Perks</a></li>
+                <li class="sub-item"><a  href="" >Alumni Membership</a></li>
+                <li class="sub-item"><a  href="" >AAA Membership Card</a></li>
+            </ul>
+            </li> -->
+            <li class="menu_item">
+                <a class="sub-btn">Communities <i class="fas fa-angle-down"></i></a>
+                <ul class="sub-menu">
+                    <li class="sub-item"><a  href="/clubs-groups" >Clubs & Groups</a></li>
+                    <li class="sub-item"><a  href="/youngalumni" >Young Alumni</a></li>
+                    <li class="sub-item"><a  href="" >Alumnini Education History</a></li>
+                    <li class="sub-item"><a  href="" >Alumnini Employment History</a></li>
+                </ul>
+            </li>
+            <li class="menu_item">
+                <a class="sub-btn" >Reading & Resources <i class="fas fa-angle-down"></i></a>
+                <ul class="sub-menu">
+                <li class="sub-item"><a  href="" >Career Connections</a></li>
+                <li class="sub-item"><a   href="https://www.amrita.edu/news-all/" >News & Stories</a></li>
+                <li class="sub-item"><a  href="https://onlineamrita.com/" >Learn</a></li>
+            </ul>
+            </li>  
+            <!-- <li class="menu_item">
+              <a href="login.html" class="sub-btn" >Login <i class="fas fa-angle-up"></i></a>
+            </li> -->
+        </ul>
+    </div>
+    <div class="menu-btn" ></div>
+  </div>
+
+  <div class="image-container">
+    <img src="https://images.pexels.com/photos/3471028/pexels-photo-3471028.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" >
+    <div class="overlay-text">
+      <p style="font-weight: 600; font-size:30px ;">About Clubs and Groups</p>
+      <p style="font-size: 70px; font-weight: 800; margin-top: 40px;">Your Amrita</p>
+      <p style="font-size: 70px; font-weight: 800; margin-top: 60px;">Community Awaits</p>
+      <p style="margin-top: 60px;font-size: 28px;font-weight: 500;line-height: 1.25;">Discover alumni communities by affiliations that are relevant 
+        to you with local and virtual offerings.</p>
+    </div>
+  </div>
+   
+  <div class="meet">
+    <h1 style="font-size: 60px; padding-top: 60px;font-weight: 150px;">Meet Your Amrita</h1>  
+    <h1  style="font-size: 60px; padding-top: 25px;font-weight: 150px;">Community</h1>
+    <p style="padding-top: 50px;font-size: 25px;text-align: center;">Here you’ll connect with other alumni; professional groups for networking,
+      <br>advice, and opportunities; and shared interest groups hosting a space for
+      <br> discussion, support, and celebration.</p>
+  </div>
+
+  <div class="cover">
+    <div class="box">
+      <img src="https://assets.stanford.edu/i/200x200/smart/filters:quality(60)/f/103430/2700x1013/18b7146e3b/health-and-wellness-kayaking.jpg" alt="">
+      <h2 style="text-align: center;margin-top: 25px;">Interest Groups</h2>
+      <p style="text-align: center;margin-top: 10px;font-weight: 500;">Hobbies. Community service. Student activities. Even the 
+        classifieds. Whatever your focus, there’s likely a group of alums
+         who share your same interest.</p> <br>
+         <a href="" style="color: red;padding: 20px;margin-left: 170px;" class="arrow-link">View interest groups<span class="arrow-icon">➔</span></a>
+    </div>
+    <div class="box1">
+      <img src="https://assets.stanford.edu/i/200x200/smart/filters:quality(60)/f/103430/2700x1013/f134a087bb/career-mid-career.jpg" alt="">
+      <h2 style="text-align: center;margin-top: 25px;">professional Groups</h2>
+      <p style="text-align: center;margin-top: 15px;font-weight: 500;">Connect with others in your industry, get advice from alums or
+         build your network through a professional group.</p> <br> <br>
+         <a href="" style="color: red;padding: 20px;margin-left: 170px;" class="arrow-link">Explore professional groups<span class="arrow-icon">➔</span></a>
+      
+    </div>
+    
+  </div>
+
+  <div class="cover1">
+    <div class="box2">
+      <img src="https://assets.stanford.edu/i/200x200/smart/filters:quality(60)/f/103430/4032x3024/7989733d2b/regional-group.jpg" alt="">
+      <h2 style="text-align: center;margin-top: 25px;">Regional Groups</h2>
+      <p style="text-align: center;margin-top: 10px;font-weight: 500;">Looking to meet Amrita alumni in your area? Find a regional
+         group to hear first about events in your neighborhood.</p> <br>
+         <a href="" style="color: red;padding: 20px;margin-left: 170px;" class="arrow-link">Browse groups<span class="arrow-icon">➔</span></a>
+    </div>
+    <div class="box3">
+      <img src="https://assets.stanford.edu/i/200x200/smart/filters:quality(60)/f/103430/1412x1303/f83e57f0d1/2009-alums.jpg" alt="">
+      <h2 style="text-align: center;margin-top: 25px;">Shared Identity Groups</h2>
+      <p style="text-align: center;margin-top: 15px;font-weight: 500;">Find communities that share your identity, culture, race,
+         ethnicity, and offerings for young alumni.</p> <br>
+         <a href="" style="color: red;padding: 20px;margin-left: 170px;" class="arrow-link">View shared identity groups<span class="arrow-icon">➔</span></a>
+    </div>
+  </div>
+   <script type="text/javascript">
+    $(document).ready(function(){
+        $(".sub-btn").click(function(){
+            $(this).next(".sub-menu").slideToggle();
+        });
+    });
+    var menu=document.querySelector(".menu");
+    var menuBtn=document.querySelector(".menu-btn");
+    var closeBtn=document.querySelector(".close-btn");
+    menuBtn.addEventListener("click",()=>{
+        menu.classList.add("active");
+    });
+    closeBtn.addEventListener("click",()=>{
+        menu.classList.remove("active");
+    });
+    window.addEventListener("scroll",function(){
+var header=document.querySelector("header")
+header.classList.toggle("sticky",window.scrollY>0);
+    });
+   </script>
+   <br><br>
+
+
+   <div class="Explore">
+    <h1 style="font-size: 60px; padding-top: 60px;font-weight: 150px;">Explore Alumni Groups </h1>  
+    <p style="padding-top: 50px;font-size: 25px;text-align: center; line-height: 1.2;">Amrita Alumni Groups is the place to find Alumni volunteer-led <br>
+       communities and programs worldwide. Discover alumni communities and <br>
+        start a conversation or look out for upcoming events near where you live or <br>
+       with communities important to you.
+  </div>
+
+  <div class="cover2">
+    <div class="box4">
+      <h2 style="text-align: center;">Communities</h2>
+      <p style="margin-top: 25px;">Communities range in size and topic
+        from regional and professional
+         groups to shared interest identity,
+         class cohorts, and other interest
+         groups—you can stay connected
+         with the Stanford experience.</p>
+    </div>
+
+    <div class="box5">
+      <h2 style="text-align: center;">Events</h2>
+      <p style="margin-top: 25px;">Faculty speaker events, community
+         service, social gatherings, or
+         professional networking, you’ll find
+         in-person and online opportunities
+         to learn and have fun with fellow
+         alumni.</p>
+    </div >
+
+    <div class="box6">
+      <h2 style="text-align: center;">Conversations</h2>
+      <p style="margin-top: 25px;">Ask a group for recommendations
+         when moving to a new city, organize
+         an AMA (ask me anything) in a group
+         discussion board, or reach out
+         to another alum in a private direct
+         message. Stanford Alumni Groups
+         offers you a place to connect in real-
+        time or asynchronously with your
+         alumni community.</p>
+    </div>
+
+  </div>
+        
+       
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container1">
+        <div class="col1">
+          <a href="" class="Brand" style="width: max-content;">Get in Touch with us</a>
+          <ul class="media-icons">
+            <li><a href="https://www.facebook.com/">
+              <i class="fab fa-facebook"></i>
+            </a></li>
+            <li><a href="https://www.twitter.com/">
+              <i class="fab fa-twitter"></i>
+            </a></li>
+            <li><a href="https://www.instagram.com/">
+              <i class="fab fa-instagram"></i>
+            </a></li>
+            <li><a href="https://www.tumblr.com/">
+              <i class="fab fa-tumblr"></i>
+            </a></li>
+            <li><a href="https://www.linkedin.com/">
+              <i class="fab fa-linkedin"></i>
+            </a></li>
+          </ul>
+        </div>
+        <div class="col2">
+          <ul class="menu">
+            <li><h4>About</h4></li>
+            <li style="width: max-content;"><a href="home.html">About AAA</a></li>
+            <li style="width: max-content;"><a href="#">Statistics</a></li>
+          </ul>
+          <ul class="menu">
+            <li><h4>Events</h4></li>
+            <li style="width: max-content;"><a href="#">Featured Events</a></li>
+            <li style="width: max-content;"><a href="#">Reunions</a></li>
+            <li style="width: max-content;"><a href="#">Event Space</a></li>
+          </ul>
+          <ul class="menu">
+            <li><h4>Programs & Perks</h4></li>
+            <li><a href="#">Alumni Perks</a></li>
+            <li style="width: max-content;"><a href="#">Alumni Membership</a></li>
+          </ul>
+          <ul class="menu">
+            <li><h4>Communities</h4></li>
+            <li style="width: max-content;"><a href="Clubs.html">Clubs & Groups</a></li>
+            <li style="width: max-content;"><a href="youngalumni.html">Young Alumni</a></li>
+            <li style="width: max-content;"><a href="#">Students</a></li>
+          </ul>
+          <ul class="menu">
+            <li><h4>Reading & Resources</h4></li>
+            <li><a href="#">Learn</a></li>
+            <li style="width: max-content;"><a href="#">Career Connections</a></li>
+            <li style="width: max-content;"><a href="#">News & Stories</a></li>
+          </ul>
+        </div>
+        <div class="col3">
+          <h4>Address</h4>
+          <li style="list-style: none;width: max-content;">Amrita Vishwavidyapeetam <br>
+           Amritanagar,<br> Ettimadai, Coimbatore <br>Tamil Nadu 641112
+          </li>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container1">
+        <p>Amrita Vishwavidyapeetam - @All Rights Reserved</p>
+        <ul class="service-icons">
+          <li>
+            <a href="#">
+              <i class="fab fa-cc-amazon-pay"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-cc-mastercard"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-cc-apple-pay"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-cc-stripe"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-cc-visa"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </footer>      
+  
+</body>
+
+</html>

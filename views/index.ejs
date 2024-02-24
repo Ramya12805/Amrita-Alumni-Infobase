@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrita Alumni</title>
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu-right-alt.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@200;300;400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .section-home {
+        position: relative;
+        min-height: 100vh;
+        background: url(/images/amritapuri-convocation-2022-images-7.png)no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-home h1 {
+        color: #FFF8DE;
+        font-size: 10vw;
+        font-weight: 800;
+        text-shadow: 0 5px 25px rgb(0 0 0 / 20%);
+        opacity: 0.8;
+    }
+
+
+
+    header {
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(103, 18, 18, 0.953);
+        box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
+        padding: 0 100px;
+        transition: 0.6s;
+    }
+
+    .logo {
+        color: aliceblue;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.8em;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 2px;
+
+    }
+
+    .navigation {
+        position: relative;
+        line-height: 75px;
+        transition-property: line-height;
+    }
+
+    header.sticky .navigation {
+        line-height: 60px;
+    }
+
+    .navigation .menu {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        user-select: none;
+    }
+
+    .menu_item>a {
+        color: aliceblue;
+        font-size: 1em;
+        text-decoration: none;
+        margin: 20px;
+        padding: 25px 0;
+    }
+
+    .menu_item>a:hover {
+        color: black;
+        transition: 0.3s;
+    }
+
+    .menu_item .sub-menu {
+        position: absolute;
+        background: rgb(100, 20, 20);
+        top: 74px;
+        line-height: 40px;
+        list-style: none;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 5px 25px rgba(192, 26, 26, 0.2);
+        pointer-events: none;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: 0.3s;
+        transition-property: transform, opacity;
+    }
+
+    header.sticky .menu_item .sub-menu {
+        top: 60px;
+    }
+
+    .menu_item:hover .sub-menu {
+        pointer-events: all;
+        transform: translateY(0);
+        opacity: 1;
+
+    }
+
+    .menu_item .sub-menu .sub-item {
+        position: relative;
+        padding: 7px 0;
+        cursor: pointer;
+        box-shadow: inset 0px -30px 5px -30px rgba(26, 12, 12, 0.251);
+
+    }
+
+    .menu_item .sub-menu .sub-item a {
+        color: #fff;
+        font-size: 1em;
+        text-decoration: none;
+        padding: 15px 30px;
+
+    }
+
+    .menu_item .sub-menu .sub-item:hover {
+        background: black;
+
+    }
+
+    .menu_item .sub-menu .sub-item:last-child:hover {
+        border-radius: 0 0 8px 8px;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    @media (max-width:1060px) {
+        header .navigation .menu {
+            position: fixed;
+            display: block;
+            background: rgb(114, 41, 41);
+            min-width: 350px;
+            height: 100vh;
+            top: 0;
+            right: -100%;
+            padding: 90px 50px;
+            overflow-y: auto;
+            transition: 0.5s;
+            transition-property: right, visiblilty;
+
+        }
+
+        header.sticky .navigation {
+            line-height: 75px;
+        }
+
+        header .navigation .menu.active {
+            right: 0;
+            visibility: visible;
+        }
+
+        .menu_item {
+            position: relative;
+        }
+
+        .menu_item .sub-menu {
+            opacity: 1;
+            position: relative;
+            top: 0;
+            transform: translateX(10px);
+            background: rgba(192, 26, 26, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+        }
+
+        header.sticky .menu_item .sub-menu {
+            top: 0;
+        }
+
+        .menu_item:hover .sub-menu {
+            transform: translateX(10px);
+        }
+
+        .menu_item .sub-menu .sub-item {
+            box-shadow: none;
+        }
+
+        .menu_item .sub-menu .sub-item:hover {
+            background: none;
+        }
+
+        .menu_item .sub-menu .sub-item a:hover {
+            color: black;
+            transition: 0.3s;
+        }
+
+        .close-btn {
+            position: absolute;
+            background: url(/images/cross-button.png)no-repeat;
+            width: 40px;
+            height: 40px;
+            background-size: 25px;
+            background-position: center;
+            top: 0;
+            left: 0;
+            margin: 25px;
+            cursor: pointer;
+        }
+
+        .menu-btn {
+            background: url(/images/menu_btn.png)no-repeat;
+            width: 40px;
+            height: 40px;
+            background-size: 70px;
+            background-position: center;
+            cursor: pointer;
+            display: block;
+
+        }
+
+        header {
+            padding: 15px 20px;
+        }
+
+        header.sticky {
+            padding: 10px 20px;
+        }
+    }
+
+    .intro h3,
+    h1 {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        line-height: 25px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+        background-color: rgb(101, 17, 17);
+
+    }
+
+    .container {
+        position: relative;
+        width: 1000px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .container h2 {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .container .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background: white;
+    }
+
+    .container .card:nth-child(even) {
+        flex-direction: column-reverse;
+    }
+
+    .container .card .imgBx {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        background: #000;
+    }
+
+    .container .card .imgBx img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .container .card .content {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container .card .content div {
+        padding: 20px;
+        text-align: center;
+    }
+
+    @media(max-width:1000px) {
+        .container {
+
+            grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+            margin: 50px;
+        }
+
+        .container .card {
+            flex-direction: row;
+            margin: 10px 0;
+        }
+
+        .container .card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .container .card .imgBx,
+        .container .card .content {
+            width: 50%;
+        }
+    }
+
+    @media (max-width:600px) {
+        .container .card {
+            flex-direction: column;
+            margin: 10px 0;
+        }
+
+        .container .card:nth-child(even) {
+            flex-direction: column;
+        }
+
+        .container .card .imgBx,
+        .container .card .content {
+            width: 100%;
+        }
+
+        .container .card .content {
+            height: 200px;
+        }
+    }
+
+    .card-button {
+        display: inline-block;
+        background-color: rgb(103, 27, 27);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 5px 2px;
+        font-size: smaller;
+    }
+
+    footer * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    footer ul {
+        list-style: none;
+    }
+
+    footer {
+        color: white;
+        background: #121315;
+
+    }
+
+    footer p {
+        color: #ccc;
+        max-width: 25em;
+        font-size: 0.9em;
+        line-height: 23px;
+    }
+
+    footer a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    footer h4 {
+        margin-bottom: 1em;
+        text-transform: uppercase;
+    }
+
+    footer .container1 {
+        max-width: 1500px;
+        margin-top: 60px;
+
+        padding: 2em;
+    }
+
+    .footer {
+        position: relative;
+        background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Amrita_School_of_Engineering%2C_Coimbatore.jpg/800px-Amrita_School_of_Engineering%2C_Coimbatore.jpg) no-repeat center;
+        background-size: cover;
+    }
+
+    .footer::before {
+        content: '';
+        background: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .footer .container1 {
+        position: relative;
+    }
+
+    .footer .footer-top .container1,
+    .footer .col2,
+    .footer .footer-bottom .container1 {
+        display: flex;
+        justify-content: space-between;
+        gap: 2em;
+    }
+
+    .footer .footer-bottom .container1 {
+        padding: 1em 2em;
+        align-items: center;
+    }
+
+    .footer menu li {
+        margin-bottom: 0.6em;
+
+    }
+
+    .footer .menu a:hover {
+        text-decoration: underline;
+    }
+
+    .Brand {
+        display: block;
+        font-size: 1.8em;
+        font-weight: 600;
+        margin-bottom: 1em;
+    }
+
+    .media-icons li,
+    .service-icons li {
+        display: inline-block;
+        margin: 0.5em 0.5em 0.5em 0;
+    }
+
+    .media-icons a {
+        font-size: 1.1em;
+        width: 2em;
+        height: 2em;
+        border: 1px white solid;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    .media-icons a:hover {
+        background: #fff;
+        color: #111;
+    }
+
+    .service-icons a {
+        font-size: 1.6em;
+    }
+
+    .service-icons a:hover {
+        color: #dbdbdb;
+
+    }
+
+    .footer-bottom {
+        border-top: 1px #bdbdbd solid;
+    }
+
+    @media screen and (max-width:900px) {
+
+        .footer .footer-top .container1,
+        .footer .footer-bottom .container1 {
+            flex-direction: column;
+        }
+
+        .footer .col2 {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <img src="/images/logo.png" alt="AMRITA ALUMNI" height="100px" width="100px"
+            style="position: relative;margin-left:20px;margin-right: 0px;">
+        <a href="home.html" class="logo">AMRITA ALUMNI</a>
+        <div class="navigation">
+            <ul class="menu">
+                <div class="close-btn"></div>
+                <li class="menu_item">
+                    <a class="sub-btn">About <i class="fas fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="/home">About AAA</a></li>
+                        <li class="sub-item"><a href="/statistics">Statistics</a></li>
+                    </ul>
+                </li>
+                <li class="menu_item">
+                    <a class="sub-btn">Events<i class="fas fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="/events">Featured Events</a></li>
+                        <!-- <li class="sub-item"><a href="">Reunions</a></li> -->
+                        <!-- <li class="sub-item"><a href="/eventspace">Event Space</a></li> -->
+                    </ul>
+                </li>
+                <!-- <li class="menu_item">
+                    <a class="sub-btn">Programs & Perks <i class="fas fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="">Alumni Perks</a></li>
+                        <li class="sub-item"><a href="">Alumni Membership</a></li>
+                        <li class="sub-item"><a href="">AAA Membership Card</a></li>
+                    </ul>
+                </li> -->
+                <li class="menu_item">
+                    <a class="sub-btn">Communities <i class="fas fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="/Clubs">Clubs & Groups</a></li>
+                        <li class="sub-item"><a href="/youngalumni">Young Alumni</a></li>
+                        <li class="sub-item"><a href="/education-history">Alumini Education History</a></li>
+                        <li class="sub-item"><a href="/employment-history">Alumini Employment History</a></li>
+                    </ul>
+                </li>
+                <li class="menu_item">
+                    <a class="sub-btn">Reading & Resources <i class="fas fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="/contact-alumini">Career Connections</a></li>
+                        <li class="sub-item"><a href="https://www.amrita.edu/news-all/">News & Stories</a></li>
+                        <li class="sub-item"><a href="https://onlineamrita.com/">Learn</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="menu_item">
+                    <a href="login.html" class="sub-btn">Login <i class="fas fa-angle-up"></i></a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="menu-btn"></div>
+    </header>
+
+    <section class="section-home">
+        <h1>Welcome Home</h1>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".sub-btn").click(function () {
+                $(this).next(".sub-menu").slideToggle();
+            });
+        });
+        var menu = document.querySelector(".menu");
+        var menuBtn = document.querySelector(".menu-btn");
+        var closeBtn = document.querySelector(".close-btn");
+        menuBtn.addEventListener("click", () => {
+            menu.classList.add("active");
+        });
+        closeBtn.addEventListener("click", () => {
+            menu.classList.remove("active");
+        });
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header")
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>
+    <br><br>
+    <div class="intro" style="margin: 60px;font-size: large;font-family: 'Times New Roman', Times, serif">
+        <h3 style="color:rgb(112, 28, 28);position: relative;right: -20px;display: flex;font-size: 25px;">About the
+            Amrita
+            Alumni Association</h3><br>
+        <h1 style="position: relative;right: -10px;display: flex;font-size: 60px;">We're Here For You</h1><br>
+        <p style="font-size: 20px;padding: 10px;">Whether you just graduated or it’s been a while, your time with Amrita
+            hasn’t come to an end. Through the Amrita Alumni Association (AAA), there are many ways to engage with
+            your Amrita community and grow your network. From connecting you with 230,000+ alumni worldwide to bringing
+            you
+            the latest Amrita stories, AAA helps you keep Amrita close wherever you are.</p><br><br>
+        <h2
+            style="position: relative;right: -10px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;">
+            See What's in Store</h2>
+        <p style="font-size: 20px;padding: 10px;"> The Amrita Alumni Association produces a wide array of offerings and
+            programming to support you at every stage of your Amrita journey, both as a student and as an alum.</p>
+    </div>
+    <div class="body">
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img
+                        src="https://images.yourstory.com/cs/wordpress/2016/12/strategies-foster-customer-relationships.jpg?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Foster Relationships</h2>
+                        <p>Thousands of alumni events happen near you and online, and we’re here to help you find them.
+                        </p><br>
+                        <a href="events.html" class="card-button">Explore events</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="https://dt19wmazj2dns.cloudfront.net/wp-content/uploads/2019/12/530x334-eee-1.jpg" alt="">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Build Communities</h2>
+                        <p>The Amrita alumni community is always close at hand. Socialize or intellectualize—online or
+                            in
+                            person—anytime, anywhere.</p><br>
+                        <a href="Clubs.html" class="card-button">Find clubs & groups</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="https://www.up.ac.za/crop/h520/w1920/364/2022/1101x298-resized-pics3.zp224444.png" alt="">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Connect Alumni</h2>
+                        <p>Amrita alums are ready to support your goals—and we make it easier to tap into your alumni
+                            network
+                            wherever you are.</p><br>
+                        <a href="directory.html" class="card-button">View Directory</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="https://d26pkxyw9vw39t.cloudfront.net/assets/Institutions_page/header-30fdb74d8ce45e56fc7cab397fbf374ad8f26ddb4f013f56aab38d91f198da3c.png"
+                        alt="">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>Enhance Alumni Life</h2>
+                        <p>Our collection of student and alumni perks allows you to unlock exclusive events and
+                            discounts even when
+                            you’re off the Farm.</p>
+                        <a href="alumPerks.html" class="card-button">See all perks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container1">
+                <div class="col1">
+                    <a href="" class="Brand" style="width: max-content;">Get in Touch with us</a>
+                    <ul class="media-icons">
+                        <li><a href="https://www.facebook.com/">
+                                <i class="fab fa-facebook"></i>
+                            </a></li>
+                        <li><a href="https://www.twitter.com/">
+                                <i class="fab fa-twitter"></i>
+                            </a></li>
+                        <li><a href="https://www.instagram.com/">
+                                <i class="fab fa-instagram"></i>
+                            </a></li>
+                        <li><a href="https://www.tumblr.com/">
+                                <i class="fab fa-tumblr"></i>
+                            </a></li>
+                        <li><a href="https://www.linkedin.com/">
+                                <i class="fab fa-linkedin"></i>
+                            </a></li>
+                    </ul>
+                </div>
+                <div class="col2">
+                    <ul class="menu">
+                        <li>
+                            <h4>About</h4>
+                        </li>
+                        <li style="width: max-content;"><a href="home.html">About AAA</a></li>
+                        <li style="width: max-content;"><a href="/statistics">Statistics</a></li>
+                    </ul>
+                    <ul class="menu">
+                        <li>
+                            <h4>Events</h4>
+                        </li>
+                        <li style="width: max-content;"><a href="#">Featured Events</a></li>
+                        <!-- <li style="width: max-content;"><a href="#">Reunions</a></li> -->
+                        <!-- <li style="width: max-content;"><a href="#">Event Space</a></li> -->
+                    </ul>
+                    <!-- <ul class="menu">
+                        <li>
+                            <h4>Programs & Perks</h4>
+                        </li>
+                        <li><a href="#">Alumni Perks</a></li>
+                        <li style="width: max-content;"><a href="#">Alumni Membership</a></li>
+                    </ul> -->
+                    <ul class="menu">
+                        <li>
+                            <h4>Communities</h4>
+                        </li>
+                        <li style="width: max-content;"><a href="/clubs-groups">Clubs & Groups</a></li>
+                        <li style="width: max-content;"><a href="/young-alumni">Young Alumni</a></li>
+                        <li style="width: max-content;"><a href="#">Alumnini Education history</a></li>
+                        <li style="width: max-content;"><a href="#">Alumini Employ history</a></li>
+                    </ul>
+                    <ul class="menu">
+                        <li>
+                            <h4>Reading & Resources</h4>
+                        </li>
+                        <li><a href="#">Learn</a></li>
+                        <li style="width: max-content;"><a href="#">Career Connections</a></li>
+                        <li style="width: max-content;"><a href="#">News & Stories</a></li>
+                    </ul>
+                </div>
+                <div class="col3">
+                    <h4>Address</h4>
+                    <li style="list-style: none;width: max-content;">Amrita Vishwavidyapeetam <br>
+                        Amritanagar,<br> Ettimadai, Coimbatore <br>Tamil Nadu 641112
+                    </li>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container1">
+                    <p>Amrita Vishwavidyapeetam - @All Rights Reserved</p>
+                    <ul class="service-icons">
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-cc-amazon-pay"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-cc-mastercard"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-cc-apple-pay"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-cc-stripe"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-cc-visa"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
